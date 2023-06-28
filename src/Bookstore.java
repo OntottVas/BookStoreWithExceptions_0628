@@ -9,16 +9,12 @@ public class Bookstore {
     }
 
     public Book findBook(String title) throws BookNotFoundException {
-        try {
-            for (int i = 0; i < books.size(); i++) {
-                if (title.equalsIgnoreCase(books.get(i).getTitle())) {
-                    return books.get(i);
-                } else {
-                    throw new BookNotFoundException();
-                }
+        for (int i = 0; i < books.size(); i++) {
+            if (title.equalsIgnoreCase(books.get(i).getTitle())) {
+                return books.get(i);
+            } else {
+                throw new BookNotFoundException();
             }
-        } catch (BookNotFoundException e) {
-            System.out.println(e.getMessage());
         }
         return null;
     }
